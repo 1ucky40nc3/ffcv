@@ -6,7 +6,7 @@ from os import environ
 import ast
 from multiprocessing import cpu_count
 from re import sub
-from typing import Any, Callable, Mapping, Sequence, Type, Union, Literal
+from typing import Any, Callable, Mapping, Sequence, Type, Union
 from collections import defaultdict
 from enum import Enum, unique, auto
 from ffcv.fields.base import Field
@@ -27,6 +27,7 @@ from ..memory_managers import (
     ProcessCacheManager, OSCacheManager, MemoryManager
 )
 
+
 @unique
 class OrderOption(Enum):
     SEQUENTIAL = auto()
@@ -35,7 +36,7 @@ class OrderOption(Enum):
 
 ORDER_TYPE = Union[
     TraversalOrder,
-    Literal[OrderOption.SEQUENTIAL,
+    Any[OrderOption.SEQUENTIAL,
             OrderOption.RANDOM]
 
 ]
